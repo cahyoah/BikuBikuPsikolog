@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">BikuBikuPsikolog</string>
+    <string name="text_closed_chat">Waktu Konsultasi Telah Berakhir</string>
+    <string name="text_edit_profile">Edit Profil</string>
+    <string name="text_email">Email</string>
+    <string name="text_failed_open_room_chat">Gagal Membuka Chat Room</string>
+    <string name="text_forgot_password">Forgot Password ?</string>
+    <string name="text_last_message">Last Message</string>
+    <string name="text_loading">Silahkan tunggu beberapa saat.....</string>
+    <string name="text_login">Login</string>
+    <string name="text_login_success">Login Berhasil</string>
+    <string name="text_login_failed">Login Gagal</string>
+    <string name="text_logout">Logout</string>
+    <string name="text_name">Nama</string>
+    <string name="text_no_history_chat">No History Chat</string>
+    <string name="text_password">Password</string>
+    <string name="text_password_empty">Password harus diisi</string>
+    <string name="text_status">Status</string>
+    <string name="text_status_activated">Aktif</string>
+    <string name="text_status_not_activated">Tidak Aktid</string>
+    <string name="text_terima">Terima</string>
+    <string name="text_tolak">Tolak</string>
+    <string name="text_typing">Mengetik.....</string>
+    <string name="text_online">Online</string>
+    <string name="text_result">Hasil test</string>
+    <string name="text_unread_message">Unread</string>
+    <string name="text_username">Username</string>
+    <string name="text_username_empty">Username harus diisi</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
