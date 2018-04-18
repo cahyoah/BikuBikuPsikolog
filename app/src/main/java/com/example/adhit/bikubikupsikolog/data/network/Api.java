@@ -56,4 +56,22 @@ public interface Api {
     Call<JsonObject> changeTransactionStatus(@Field("layanan") String service,
                                              @Field("invoice") String invoice,
                                              @Field("status") String status);
+
+    @POST("biquers/profil")
+    @FormUrlEncoded
+    Call<JsonObject> changeDataAccount(@Field("nama") String name,
+                                       @Field("username") String username,
+                                       @Field("email") String email,
+                                       @Field("tujuan") String aim,
+                                       @Field("wa") String wa,
+                                       @Field("id_line") String idLine,
+                                       @Field("bio") String bio);
+
+    @POST("user/status")
+    @FormUrlEncoded
+    Call<JsonObject> updatestatus (@Field("status") String status);
+
+    @GET("user/status")
+    Call<JsonObject> getstatus ();
+
 }

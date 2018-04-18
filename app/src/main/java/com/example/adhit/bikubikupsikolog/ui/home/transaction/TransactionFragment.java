@@ -36,7 +36,6 @@ public class TransactionFragment extends Fragment implements TransactionView, Tr
     private TransactionAdapter adapter;
     private TransactionPresenter transactionPresenter;
     private RecyclerView rvNewRequest;
-    private Switch swOnOff;
     private NewTransactionReceiver mBroadcast;
     private ProgressBar pbLoading;
     private TextView tvError;
@@ -53,7 +52,6 @@ public class TransactionFragment extends Fragment implements TransactionView, Tr
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_transaction, container, false);
-        swOnOff = view.findViewById(R.id.sw_on_off);
         rvNewRequest = view.findViewById(R.id.rv_new_request);
         pbLoading = view.findViewById(R.id.pb_loading);
         tvError = view.findViewById(R.id.tv_error);

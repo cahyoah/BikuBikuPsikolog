@@ -8,6 +8,7 @@ public class Constant {
     public static String BASE_URL = "http://kampusgo.xyz/bikubiku/v2/";
     public static String BASE_URL_QISCUS = "https://bikubiku-it3hra928qv7.qiscus.com/";
     public static final String IS_LOGIN = "IS_LOGIN";
+    public static final String IS_ON = "IS_ON";
     public static final String USER_TOKEN = "token";
     public static final String KEY_PSIKOLOG = "psikolog";
     public static String APP_ID_QISCUS = "bikubiku-it3hra928qv7";

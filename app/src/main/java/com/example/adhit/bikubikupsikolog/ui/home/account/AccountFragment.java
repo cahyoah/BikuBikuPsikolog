@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -16,6 +17,7 @@ import com.example.adhit.bikubikupsikolog.data.model.Psikolog;
 import com.example.adhit.bikubikupsikolog.presenter.AccountPresenter;
 import com.example.adhit.bikubikupsikolog.service.NewTransactionTask;
 import com.example.adhit.bikubikupsikolog.service.RoomChatService;
+import com.example.adhit.bikubikupsikolog.ui.editprofil.EditProfilActivity;
 import com.example.adhit.bikubikupsikolog.ui.login.LoginActivity;
 import com.example.adhit.bikubikupsikolog.util.ShowAlert;
 
@@ -39,6 +41,7 @@ public class AccountFragment extends Fragment implements AccountView, View.OnCli
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_account, container, false);
+        swOnOff = view.findViewById(R.id.sw_on_off);
         tvName = view.findViewById(R.id.tv_name);
         tvEmail = view.findViewById(R.id.tv_email);
         tvEditProfil = view.findViewById(R.id.tv_edit_profil);
@@ -52,6 +55,20 @@ public class AccountFragment extends Fragment implements AccountView, View.OnCli
         tvEditProfil.setOnClickListener(this);
        accountPresenter = new AccountPresenter(this);
        accountPresenter.showDataProfile();
+       swOnOff.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+           @Override
+           public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+               if(ShowAlert.dialog != null && ShowAlert.dialog.isShowing()){
+                   ShowAlert.closeProgresDialog();
+               }
+               ShowAlert.showProgresDialog(getActivity());
+               if(b){
+                   accountPresenter.updateStatus("online");
+               }else {
+                   accountPresenter.updateStatus("offline");
+               }
+           }
+       });
     }
 
     @Override
@@ -68,6 +85,37 @@ public class AccountFragment extends Fragment implements AccountView, View.OnCli
     }
 
     @Override
+    public void onSuccessUpdateStatus(String message) {
+        ShowAlert.closeProgresDialog();
+        ShowAlert.showToast(getActivity(), message);
+    }
+
+    @Override
+    public void onFailedUpdateStatus(String message) {
+        ShowAlert.closeProgresDialog();
+        ShowAlert.showToast(getActivity(), message);
+    }
+
+    @Override
+    public void onFailedLogout() {
+        ShowAlert.showToast(getActivity(), "Mohon nonaktifkan status anda");
+    }
+
+    @Override
+    public void onFailedGetStatus(String message) {
+
+    }
+
+    @Override
+    public void onSuccessGetStatus(String message) {
+        if (message.equals("online")){
+            swOnOff.setChecked(true);
+        }else {
+            swOnOff.setChecked(false);
+        }
+    }
+
+    @Override
     public void onClick(View view) {
         if(view.getId() == R.id.btn_logout){
             getActivity().stopService(new Intent(getActivity(), RoomChatService.class));
@@ -76,7 +124,8 @@ public class AccountFragment extends Fragment implements AccountView, View.OnCli
             accountPresenter.logout();
         }
         if(view.getId() == R.id.tv_edit_profil){
-            ShowAlert.showToast(getActivity(),"Coming Soon");
+            Intent intent = new Intent(getActivity(), EditProfilActivity.class);
+            startActivity(intent);
         }
     }
 }

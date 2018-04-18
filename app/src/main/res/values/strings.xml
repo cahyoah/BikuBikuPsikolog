@@ -1,10 +1,13 @@
 <resources>
     <string name="app_name">BikuBikuPsikolog</string>
+    <string name="text_bio">Bio</string>
+    <string name="text_cannot_empty">Tidak Boleh Kosong</string>
     <string name="text_closed_chat">Waktu Konsultasi Telah Berakhir</string>
     <string name="text_edit_profile">Edit Profil</string>
     <string name="text_email">Email</string>
     <string name="text_failed_open_room_chat">Gagal Membuka Chat Room</string>
     <string name="text_forgot_password">Forgot Password ?</string>
+    <string name="text_id_line">Id Line</string>
     <string name="text_last_message">Last Message</string>
     <string name="text_loading">Silahkan tunggu beberapa saat.....</string>
     <string name="text_login">Login</string>
@@ -23,9 +26,12 @@
     <string name="text_typing">Mengetik.....</string>
     <string name="text_online">Online</string>
     <string name="text_result">Hasil test</string>
+    <string name="text_save">Simpan</string>
     <string name="text_unread_message">Unread</string>
     <string name="text_username">Username</string>
     <string name="text_username_empty">Username harus diisi</string>
+    <string name="text_wa">No WA</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

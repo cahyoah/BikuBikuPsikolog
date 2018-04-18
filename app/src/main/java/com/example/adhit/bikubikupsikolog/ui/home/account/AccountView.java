@@ -11,4 +11,14 @@ public interface AccountView {
     void showDataProfile(Psikolog psikolog);
 
     void gotoLogin();
+
+    void onSuccessUpdateStatus(String message);
+
+    void onFailedUpdateStatus(String message);
+
+    void onFailedLogout();
+
+    void onFailedGetStatus(String message);
+
+    void onSuccessGetStatus(String message);
 }

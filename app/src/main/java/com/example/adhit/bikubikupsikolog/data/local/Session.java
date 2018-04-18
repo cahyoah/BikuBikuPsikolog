@@ -28,4 +28,13 @@ public class Session {
         SharedPrefUtil.saveBoolean(Constant.IS_LOGIN, isLogin);
     }
 
+
+    public boolean isOn() {
+        return SharedPrefUtil.getBoolean(Constant.IS_ON);
+    }
+
+    public void setStatus(boolean isOn) {
+        SharedPrefUtil.saveBoolean(Constant.IS_ON, isOn);
+    }
+
 }
