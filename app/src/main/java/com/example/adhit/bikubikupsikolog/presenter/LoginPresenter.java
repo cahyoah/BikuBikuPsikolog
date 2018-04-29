@@ -75,7 +75,7 @@ public class LoginPresenter {
                         }else {
                             loginView.showMessageSnackbar(context.getResources().getString(R.string.text_login_failed));
                         }
-                        ShowAlert.closeProgresDialog();
+
                     }
                     @Override
                     public void onFailure(Call<JsonObject> call, Throwable t) {
@@ -92,12 +92,15 @@ public class LoginPresenter {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(qiscusAccount -> {
+                    ShowAlert.closeProgresDialog();
                     SaveUserToken.getInstance().saveUserToken(psikolog.getId(), psikolog.getToken());
                     SaveUserData.getInstance().savePsikolog(psikolog);
                     Session.getInstance().setLogin(true);
                     loginView.showMessage("Selamat Datang " + psikolog.getNama());
                     loginView.gotoHome();
+
                 }, throwable -> {
+                    ShowAlert.closeProgresDialog();
                     if (throwable instanceof HttpException) { //Error response from server
                         HttpException e = (HttpException) throwable;
                         try {
